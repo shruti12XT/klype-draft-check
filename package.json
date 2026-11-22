@@ -1,0 +1,20 @@
+{
+  "name": "klype-draft-check",
+  "version": "0.1.0",
+  "description": "Chrome extension that checks LinkedIn post drafts for unsourced claims, with hybrid on-device and cloud Gemini via Firebase AI Logic.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.js",
+    "zip": "npm run build && cd dist && zip -r ../klype-draft-check.zip ."
+  },
+  "author": "Shruti Kaushik",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^13.4.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10"
+  },
+  "type": "module",
+  "private": true
+}

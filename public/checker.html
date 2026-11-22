@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Klype Draft Check</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Klype Draft Check</h1>
+    <p class="sub">Catch unsourced claims before your post goes live.</p>
+  </header>
+
+  <label for="draft">Your LinkedIn draft</label>
+  <textarea id="draft" rows="9" placeholder="Paste a post draft here, or click Check draft inside the LinkedIn composer."></textarea>
+
+  <div class="row">
+    <label for="mode" class="inline">Model</label>
+    <select id="mode">
+      <option value="auto" selected>Auto: on-device first, cloud fallback</option>
+      <option value="device">On-device only (Gemini Nano)</option>
+      <option value="cloud">Cloud only (Firebase AI Logic)</option>
+    </select>
+    <button id="check" type="button">Check draft</button>
+  </div>
+  <p id="device" class="meta"></p>
+  <p id="status" class="status" role="status"></p>
+
+  <section>
+    <h2>Instant rule checks</h2>
+    <div id="rules"><p class="meta">Runs locally on every check. No model needed.</p></div>
+  </section>
+
+  <section>
+    <h2>Model review <span id="badge" class="badge" hidden></span></h2>
+    <div id="ai"><p class="meta">Results from Gemini appear here.</p></div>
+    <div id="rewrite-wrap" hidden>
+      <label for="rewrite">Suggested rewrite</label>
+      <textarea id="rewrite" rows="9"></textarea>
+      <button id="copy" type="button" class="secondary">Copy rewrite</button>
+      <p class="meta">Placeholders like [source: add link] mark claims that still need a source. Review before posting.</p>
+    </div>
+  </section>
+
+  <footer class="meta">Your draft is never stored. It is sent only to the model: Gemini Nano on your device, or Gemini through Firebase AI Logic when the cloud is used.</footer>
+  <script src="checker.js"></script>
+</body>
+</html>

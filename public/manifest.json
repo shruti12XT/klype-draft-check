@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Klype Draft Check",
+  "version": "0.1.0",
+  "description": "Checks a LinkedIn post draft for unsourced claims, vague hooks and missing context. On-device Gemini Nano first, cloud fallback via Firebase AI Logic.",
+  "minimum_chrome_version": "139",
+  "action": {
+    "default_title": "Klype Draft Check",
+    "default_popup": "checker.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

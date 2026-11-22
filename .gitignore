@@ -1,0 +1,6 @@
+node_modules/
+dist/
+firebase-config.js
+*.zip
+.env
+.DS_Store
